@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion du matériel{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/qcm-page.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+    </br>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Utilisateurs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('category_page') }}">Catégories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('materiel_page') }}">Matériels</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('catmat_page') }}">Cat / Mat</a>
+        </li>
+    </ul>
+    </br>
+
+    <h1>Liste des utilisateurs</h1>
+
+    <a type="button" class="btn btn-success" href="{{ path('new_user_page') }}">
+        AJOUTER UN UTILISATEUR
+    </a>
+    </br>
+
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">Code</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Outils</th>
+            <th scope="col">Emp</th>
+            <th scope="col">Emprunts</th>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr class="
+                    {% if loop.index is divisible by(2) %}
+                        table-success
+                    {% else %}
+                        table-primary
+                    {% endif %}">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name | upper }} {{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary btn-sm" href="/user/edit/{{ user.id }}">MODIFIER</a>
+                        {% if user.loanings|length > 0 %}
+                            <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE ( {{ user.loanings|length }} )</a>
+                        {% else %}
+                            <a type="button" class="btn btn-primary btn-sm" href="{{ path('delete_user_page', {'id': user.id}) }}">SUPPRIMER</a>
+                        {% endif %}
+                    </td>
+                    <td>{{ user.loanings|length }}</td>
+                    <td>
+                        {% if user.loanings|length > 0 %}
+                            {% for loaning in user.loanings %}
+                                {{ loaning.date_loaning | date("m/d/Y", "Europe/Paris") }} : {{ loaning.materials.libelle }}
+                            {% endfor %}
+                        {% else %}
+                            Pas d'emprunt.
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme formcategory 'form/form_connexion.html.twig' %}
+
+{% block title %}Ajout d'une catégorie{% endblock %}
+
+{% block body %}
+
+    {{ form_start(formcategory) }}
+        <button type="submit" class="btn btn-success">
+            AJOUTER LA CATEGORIE
+        </button>
+    {{ form_end(formcategory) }}
+
+{% endblock %}

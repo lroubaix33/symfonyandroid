@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'form/form_connexion.html.twig' %}
+
+{% block title %}Modification d'un utilisateur{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+        <button type="submit" class="btn btn-success">
+            SAUVERGARDER
+        </button>
+    {{ form_end(form) }}
+
+{% endblock %}

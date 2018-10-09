@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme categoryform 'form/form_connexion.html.twig' %}
+
+{% block title %}Modification d'une catégorie{% endblock %}
+
+{% block body %}
+
+    {{ form_start(categoryform) }}
+        <button type="submit" class="btn btn-success">
+            MODIFIER CETTE CATEGORIE
+        </button>
+    {{ form_end(categoryform) }}
+    
+{% endblock %}

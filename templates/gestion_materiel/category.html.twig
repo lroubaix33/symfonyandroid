@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+    </br>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('user_page') }}">Utilisateurs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Catégories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('materiel_page') }}">Matériels</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('catmat_page') }}">Cat / Mat</a>
+        </li>
+    </ul>
+    </br>
+
+    <h1>Liste des catégories</h1>
+
+    <a type="button" class="btn btn-success" href="{{ path('new_category_page') }}">
+        AJOUTER UNE CATEGORIE
+    </a>
+    </br></br>
+
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">Code</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Outils</th>
+        </thead>
+        <tbody>
+            {% for category in categorys %}
+                <tr class="
+                    {% if loop.index is divisible by(2) %}
+                        table-success
+                    {% else %}
+                        table-primary
+                    {% endif %}">
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.libelle }}</td>
+                    <td>{{ category.countOfMaterials }}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary btn-sm" href="/category/edit/{{ category.id }}">MODIFIER</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
