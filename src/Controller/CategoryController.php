@@ -84,4 +84,16 @@ class CategoryController extends AbstractController
             'categoryform' => $categoryForm->createView()
         ]); 
     }
+
+    /**
+     * @Route("/category/delete/{id}", name="delete_category_page")
+     */
+    public function deleteCategory(ObjectManager $manager, Category $category) {
+
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($category);
+        $manager->flush();
+
+        return $this->redirect( $this->generateUrl('category_page') );
+    }
 }

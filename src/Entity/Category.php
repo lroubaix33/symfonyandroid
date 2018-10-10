@@ -24,6 +24,11 @@ class Category
     private $libelle;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $code;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Material", mappedBy="category")
      */
     private $materials;
@@ -48,6 +53,18 @@ class Category
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }

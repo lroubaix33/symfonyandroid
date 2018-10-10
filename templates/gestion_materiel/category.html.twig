@@ -43,11 +43,16 @@
                     {% else %}
                         table-primary
                     {% endif %}">
-                    <td>{{ category.id }}</td>
+                    <td>{{ category.code }}</td>
                     <td>{{ category.libelle }}</td>
                     <td>{{ category.countOfMaterials }}</td>
                     <td>
                         <a type="button" class="btn btn-primary btn-sm" href="/category/edit/{{ category.id }}">MODIFIER</a>
+                        {% if category.countOfMaterials > 0 %}
+                            {# DO NOTHING #}
+                        {% else %}
+                            <a type="button" class="btn btn-primary btn-sm" href=href="{{ path('delete_category_page', {'id': category.id}) }}">SUPPRIMER</a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}

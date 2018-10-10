@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme formmaterial 'form/form_connexion.html.twig' %}
+
+{% block title %}Ajout d'un matériel{% endblock %}
+
+{% block body %}
+
+    {{ form_start(formmaterial) }}
+        <button type="submit" class="btn btn-success">
+            AJOUTER LE MATERIEL
+        </button>
+    {{ form_end(formmaterial) }}
+
+{% endblock %}
