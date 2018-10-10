@@ -48,20 +48,6 @@ class CategoryRepository extends ServiceEntityRepository
     }
     */
 
-    /**
-     * @param $catcode
-     * @return int
-     */
-    public function findAllMatCodeByCateg($catcode): int
-    {
-
-        return $this->createQueryBuilder('p')
-            ->andWhere('MIdCateg = :catcode')
-            ->setParameter('catcode', $catcode)
-            ->getQuery()
-            ->getResult();
-    }
-
     public function findOneByIdJoinedToCategory($idcateg)
     {
         return $this->createQueryBuilder('category')

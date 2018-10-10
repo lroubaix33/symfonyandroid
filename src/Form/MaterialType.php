@@ -6,9 +6,9 @@ use App\Entity\Category;
 use App\Entity\Material;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class MaterialType extends AbstractType
@@ -17,29 +17,32 @@ class MaterialType extends AbstractType
     {
         $builder
             ->add('code', TextType::class, [
-                'code' => 'Code du matériel', 'attr' => [
+                'label' => 'Code du matériel', 'attr' => [
                 'placeholder' => 'Code du matériel ...', 
                 'class' => 'form-control']])
 
             ->add('libelle', TextType::class, [
-                'libelle' => 'Libellé du matériel',
+                'label' => 'Libellé du matériel',
                 'attr' => [
                 'placeholder' => 'Libellé du matériel ...',
                 'class' => 'form-control']])
 
-            ->add('category', ChoiceType::class, [
-                'choices' => [
-                    new Category()
-                ], 'attr' => [
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'libelle',
+                'attr' => [
                     'class' => 'form-control'
-                ], 'libelle' => 'Catégorie'])
+                ],
+                'label' => 'Catégorie du matériel',
+            ])
 
             ->add('is_delete', CheckboxType::class, [
                 'label' => 'Hors service',
-                'required' => true])
+                'required' => true
+                ])
 
             ->add('motif_delete', TextType::class, [
-                'libelle' => 'Commentaires',
+                'label' => 'Commentaires',
                 'attr' => [
                 'placeholder' => 'Commentaires ...',
                 'class' => 'form-control']])

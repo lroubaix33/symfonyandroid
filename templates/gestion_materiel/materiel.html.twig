@@ -23,7 +23,7 @@
 
     <h1>Liste des matériels</h1>
 
-    <a type="button" class="btn btn-success" href="{{ path('new_category_page') }}">
+    <a type="button" class="btn btn-success" href="{{ path('new_material_page') }}">
         AJOUTER UN MATERIEL
     </a>
     </br></br>
@@ -44,12 +44,13 @@
                     {% else %}
                         table-primary
                     {% endif %}">
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ material.code }}</td>
+                    <td>{{ material.libelle }}</td>
+                    <td>{{ material.category.libelle }}</td>
                     <td>
-                        {# <a type="button" class="btn btn-primary btn-sm" href="/category/edit/{{ category.id }}">MODIFIER</a> #}
+                        <a type="button" class="btn btn-primary btn-sm" href="/material/edit/{{ material.id }}">MODIFIER</a>
                     </td>
+                    <td>{{ material.motifDelete }}</td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -17,6 +17,11 @@ class Material
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $code;
+
+    /**
      * @ORM\Column(type="string", length=50)
      */
     private $libelle;
@@ -54,6 +59,18 @@ class Material
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }
