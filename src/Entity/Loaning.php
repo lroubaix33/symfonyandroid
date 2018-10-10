@@ -43,6 +43,11 @@ class Loaning
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Material1", inversedBy="loanings")
+     */
+    private $material;
+
     public function __construct()
     {
         $this->materials = new ArrayCollection();
@@ -128,6 +133,18 @@ class Loaning
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getMaterial(): ?Material1
+    {
+        return $this->material;
+    }
+
+    public function setMaterial(?Material1 $material): self
+    {
+        $this->material = $material;
 
         return $this;
     }

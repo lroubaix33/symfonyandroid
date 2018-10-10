@@ -65,7 +65,7 @@
                     <td>
                         {% if user.loanings|length > 0 %}
                             {% for loaning in user.loanings %}
-                                {{ loaning.date_loaning | date("m/d/Y", "Europe/Paris") }} : {{ loaning.materials.libelle }}
+                                {{ loaning.dateLoaning | date("m/d/Y", "Europe/Paris") }} : {{ loaning.materials.libelle }}
                             {% endfor %}
                         {% else %}
                             Pas d'emprunt.

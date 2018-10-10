@@ -48,6 +48,9 @@
                     <td>{{ material.libelle }}</td>
                     <td>{{ material.category.libelle }}</td>
                     <td>
+                        {% if not material.lastLoaning %}
+                            <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE</a>
+                        {% endif %}
                         <a type="button" class="btn btn-primary btn-sm" href="/material/edit/{{ material.id }}">MODIFIER</a>
                     </td>
                     <td>{{ material.motifDelete }}</td>
