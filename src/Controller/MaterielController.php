@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Material;
+use App\Entity\Material1;
 use App\Form\MaterialType;
 use App\Repository\MaterialRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,16 +31,25 @@ class MaterielController extends AbstractController
     public function newMaterial(ObjectManager $manager, Request $request) {
 
         $material = new Material();
+        $material1 = new Material1();
 
         $formMaterial = $this->createForm(MaterialType::class, $material);
         $formMaterial->handleRequest($request);
 
         if ($formMaterial->isSubmitted() && $formMaterial->isValid()) {
 
-            $material = $formMaterial->getData();
             $manager = $this->getDoctrine()->getManager();
+            $material = $formMaterial->getData();
 
             $manager->persist($material);
+            $manager->flush();
+
+            $material1->setLibelle($material->getLibelle());
+            $material1->setCode($material->getCode());
+            $material1->setIsDelete($material->getIsDelete());
+            $material1->setMotifDelete($material->getMotifDelete());
+
+            $manager->persist($material1);
             $manager->flush();
 
             return $this->redirectToRoute('material_page');
@@ -53,9 +63,11 @@ class MaterielController extends AbstractController
     /**
      * @Route("/material/edit/{id}", name="edit_material_page")
      */
-    public function updateMaterial (Material $material, ObjectManager $manager, Request $request) {
+    public function updateMaterial (Material $material,
+      ObjectManager $manager,
+       Request $request) {
 
-        if (!$material) {
+        if (!$material && !$_material) {
             $material = new Material();
         }
 
@@ -65,6 +77,7 @@ class MaterielController extends AbstractController
         if ($materialForm->isSubmitted() && $materialForm->isValid()) {
 
             $material = $materialForm->getData();
+
             $manager = $this->getDoctrine()->getManager();
 
             $manager->persist($material);

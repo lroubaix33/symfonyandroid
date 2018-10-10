@@ -24,16 +24,6 @@ class Material1
     private $libelle;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_categ;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_loaning;
-
-    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $is_delete;
@@ -42,6 +32,11 @@ class Material1
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $motif_delete;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $code;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Loaning", mappedBy="material")
@@ -63,33 +58,21 @@ class Material1
         return $this->libelle;
     }
 
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
-
-        return $this;
-    }
-
-    public function getIdCateg(): ?int
-    {
-        return $this->id_categ;
-    }
-
-    public function setIdCateg(int $id_categ): self
-    {
-        $this->id_categ = $id_categ;
-
-        return $this;
-    }
-
-    public function getIdLoaning(): ?int
-    {
-        return $this->id_loaning;
-    }
-
-    public function setIdLoaning(int $id_loaning): self
-    {
-        $this->id_loaning = $id_loaning;
 
         return $this;
     }
