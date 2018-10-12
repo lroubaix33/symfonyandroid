@@ -48,12 +48,24 @@
                     <td>{{ material.libelle }}</td>
                     <td>{{ material.category.libelle }}</td>
                     <td>
-                        {% if not material.lastLoaning %}
-                            <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE</a>
-                        {% endif %}
                         <a type="button" class="btn btn-primary btn-sm" href="/material/edit/{{ material.id }}">MODIFIER</a>
+                        {% if not material.lastLoaning is null %}
+                            <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE</a>
+                        {% else %}
+                            <a type="button" class="btn btn-primary btn-sm" href="/material/delete/{{ material.id }}">SUPPRIMER</a>
+                            <a type="button" class="btn btn-primary btn-sm" href="{{ path('attrib_material_page', {'id': material.id}) }}">ATTRIB</a>
+                        {% endif %}
+                        {% if not material.isDelete %}
+                            <a type="button" class="btn btn-primary btn-sm" href="#">HS</a>
+                        {% endif %}
                     </td>
-                    <td>{{ material.motifDelete }}</td>
+                    <td>
+                        {% if material.lastLoaning is null %}
+                            {{ material.motifDelete }}
+                        {% else %}
+                            {{ material.lastLoaning.dateLoaning  | date("m/d/Y", "Europe/Paris") }}
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

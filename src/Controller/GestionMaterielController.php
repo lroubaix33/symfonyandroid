@@ -4,9 +4,14 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\User;
+use App\Entity\Loaning;
+use App\Entity\Material;
 use App\Form\AddUserType;
+use App\Form\LoaningType;
+use App\Form\LoaningBackType;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
+use App\Repository\MaterialRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
@@ -105,5 +110,47 @@ class GestionMaterielController extends AbstractController {
         $manager->flush();
 
         return $this->redirect( $this->generateUrl('user_page') );
+    }
+
+    /**
+     * @Route("/user/loaningback/{id}", name="loaning_back_page")
+     */
+    public function loaningBack (ObjectManager $manager,
+     Loaning $loaning, 
+     UserRepository $userR, 
+     MaterialRepository $repo, 
+     Request $request) {
+
+        if (!$loaning) {
+            $loaning = new Loaning();
+        }
+
+        $user = $userR->find($loaning->getUser());
+
+        $material = $repo->findOneByIdJoinedToLoaning($loaning->getId());
+
+        // var_dump($result[0]);
+
+        $loaningBackForm = $this->createForm(LoaningBackType::class, $loaning);
+        $loaningBackForm->handleRequest($request);
+
+        if ($loaningBackForm->isSubmitted() && $loaningBackForm->isValid()) {
+
+            $loaning = $loaningBackForm->getData();
+            $manager = $this->getDoctrine()->getManager();
+
+            $material[0]->setLastLoaning(null);
+
+            $manager->persist($loaning);
+            $manager->flush();
+
+            return $this->redirectToRoute('user_page');
+        }
+
+        return $this->render('/gestion_materiel/loaningback.html.twig', [
+            'loaningbackform' => $loaningBackForm->createView(),
+            'user' => $user,
+            'material' => $material
+        ]); 
     }
 }

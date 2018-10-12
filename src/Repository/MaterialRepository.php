@@ -47,4 +47,15 @@ class MaterialRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findOneByIdJoinedToLoaning($idLoaning)
+    {
+        return $this->createQueryBuilder('material')
+            ->innerJoin('material.last_loaning', 'loaning')
+            ->addSelect('loaning')
+            ->andWhere('material.last_loaning = :idLoaning')
+            ->setParameter('idLoaning', $idLoaning)
+            ->getQuery()
+            ->getResult();
+    }
 }

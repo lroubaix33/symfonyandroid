@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme loaningbackform 'form/form_connexion.html.twig' %}
+
+{% block title %}Retour du matériel{% endblock %}
+
+{% block body %}
+
+    {{ form_start(loaningbackform) }}
+        <button type="submit" class="btn btn-success">
+            RETOURs
+        </button>
+    {{ form_end(loaningbackform) }}
+
+{% endblock %}

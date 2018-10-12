@@ -10,12 +10,15 @@
             crossorigin="anonymous">
 
         {# THEME BOOTSWATCH #}
-        <link href="https://bootswatch.com/4/sketchy/bootstrap.min.css" rel="stylesheet"/>
-        {# <link hre="https://bootswatch.com/4/materia/bootstrap.min.css" rel="stylesheet"/> #}
+        {# <link href="https://bootswatch.com/4/sketchy/bootstrap.min.css" rel="stylesheet"/> #}
+        <link hre="https://bootswatch.com/4/materia/bootstrap.min.css" rel="stylesheet"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         {# TITLE #}
         <title>{% block title %}Application Dev{% endblock %}</title>
 
+        <link rel="stylesheet" href="{{ asset('build/css/base-page.css') }}"/>
         {# OPTIONNAL STYLESHEET #}
         {% block stylesheets %}{% endblock %}
     </head>
@@ -53,9 +56,18 @@
             </div>
         </nav>
 
+        <link href=""/>
+
         <div class="container">
             {% block body %}{% endblock %}
+            <footer class="footer">
+                <div class="container">
+                    <p>Copyright (c) 2018</p>
+                    <p>Powered by PHP 7.2.10 - Node v8.12.0 on Symfony v4.1.3</p>
+                </div>
+            </footer>
         </div>
+        
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
                     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 

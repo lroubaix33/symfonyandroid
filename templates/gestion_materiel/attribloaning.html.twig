@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme loaningform 'form/form_connexion.html.twig' %}
+
+{% block title %}Attribution du matériel{% endblock %}
+
+{% block body %}
+
+    {{ form_start(loaningform) }}
+        <button type="submit" class="btn btn-success">
+            SAUVERGARDER
+        </button>
+    {{ form_end(loaningform) }}
+
+{% endblock %}

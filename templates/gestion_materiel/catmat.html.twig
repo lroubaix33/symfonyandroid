@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cat / Mat{% endblock %}
+
+{% block body %}
+
+    </br>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('user_page') }}">Utilisateurs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('category_page') }}">Catégories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('material_page') }}">Matériels</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Cat / Mat</a>
+        </li>
+    </ul>
+
+    </br>
+
+    <h1>Liste des matériels par catégorie</h1>
+
+    </br>
+
+    <ul class="list-group">
+        {% for category in categorys %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="/catmat/find/{{ category.id }}">
+                {{ category.code }} - {{ category.libelle }}
+            </a>
+            <span class="badge badge-primary badge-pill">{{ category.countOfMaterials }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    </br>
+
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">Code</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Outils</th>
+            <th scope="col">Etat</th>
+        </thead>
+        <tbody>
+            {% for material in materials %}
+                <tr class="
+                    {% if loop.index is divisible by(2) %}
+                        table-success
+                    {% else %}
+                        table-primary
+                    {% endif %}">
+                    <td>{{ material.code }}</td>
+                    <td>{{ material.libelle }}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary btn-sm" href="#">MODIFIER</a>
+                    </td>
+                    <td>
+                        {% if material.lastLoaning is null %}
+                            {# DO NOTHING #}
+                        {% else %}
+                            {{ material.lastLoaning.dateLoaning | date('Y/d/m') }}
+                        {% endif %}    
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

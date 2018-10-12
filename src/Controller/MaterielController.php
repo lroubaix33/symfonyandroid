@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Loaning;
 use App\Entity\Material;
 use App\Entity\Material1;
+use App\Form\LoaningType;
 use App\Form\MaterialType;
+use App\Repository\CategoryRepository;
 use App\Repository\MaterialRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -28,7 +31,7 @@ class MaterielController extends AbstractController
     /**
      * @Route("/materiel/new", name="new_material_page")
      */
-    public function newMaterial(ObjectManager $manager, Request $request) {
+    public function newMaterial(ObjectManager $manager, Request $request, CategoryRepository $repo) {
 
         $material = new Material();
         $material1 = new Material1();
@@ -40,6 +43,12 @@ class MaterielController extends AbstractController
 
             $manager = $this->getDoctrine()->getManager();
             $material = $formMaterial->getData();
+
+            $category = $repo->find($material->getCategory());
+            $category->setCountOfMaterials($category->getCountOfMaterials() + 1);
+
+            $manager->persist($category);
+            $manager->flush();
 
             $manager->persist($material);
             $manager->flush();
@@ -94,12 +103,56 @@ class MaterielController extends AbstractController
     /**
      * @Route("/material/delete/{id}", name="delete_material_page")
      */
-    public function deleteMaterial(ObjectManager $manager, Material $material) {
+    public function deleteMaterial(ObjectManager $manager, Material $material, CategoryRepository $repo) {
 
         $manager = $this->getDoctrine()->getManager();
         $manager->remove($material);
+
+        $category = $repo->find($material->getCategory());
+
+        if ($category->getCountOfMaterials() == 1) {
+            $category->setCountOfMaterials(null);
+        } else {
+            $category->setCountOfMaterials($category->getCountOfMaterials() - 1);
+        }
+
+        $manager->persist($category);
         $manager->flush();
 
         return $this->redirect( $this->generateUrl('material_page') );
+    }
+
+    /**
+     * @Route("/material/attrib/{id}", name="attrib_material_page")
+     */
+    public function attribMaterial(Material $material,
+      MaterialRepository $repo,
+        ObjectManager $manager,
+         Request $request) {
+
+        $loaning = new Loaning();
+
+        // $material = $repo->find($material);
+
+        $loaningForm = $this->createForm(LoaningType::class, $loaning);
+        $loaningForm->handleRequest($request);
+
+        if ($loaningForm->isSubmitted() && $loaningForm->isValid()) {
+
+            $loaning = $loaningForm->getData();
+            $manager = $this->getDoctrine()->getManager();
+
+            $loaning->addMaterial($material);
+
+            $manager->persist($loaning);
+            $manager->flush();
+
+            return $this->redirectToRoute('material_page');
+        }
+
+        return $this->render('/gestion_materiel/attribloaning.html.twig', [
+            'loaningform' => $loaningForm->createView(),
+            'material' => $material
+        ]);
     }
 }

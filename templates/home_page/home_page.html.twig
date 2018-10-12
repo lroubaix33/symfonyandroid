@@ -3,9 +3,32 @@
 {% block title %}Page d'acceuil{% endblock %}
 
 {% block body %}
-    {% for user in users %}
-        <ul>
-            <li>{{ user.name | upper }} {{ user.username }}, Password HASH = {{ user.password }} </li>
-        </ul>
-    {% endfor %}
+
+    </br>
+
+    <h2>Projet de site façade</h2>
+
+    <p>
+        Léo ROUBAIX, 28 ans, développeur Web / Mobile (Android). Passionné d'informatique et des nouvelles technologies.
+        J'ai pu travailler sur différentes technologies telle que <a href="https://ionicframework.com/">Ionic</a> (développement d'applications crossplatform),
+        mais aussi sur des PWAs (<a href="https://progressive-web-apps.fr/">Progressive Web Application</a>) et des applications mobiles (Android).
+    </p>
+    <p>
+        Ce site recense quelque projet que j'ai pu réaliser lors de mon <a href="https://diplomeo.com/trouver-bts-sio">BTS SIO (Service informatique aux organisations).</a>
+    </p>
+    <p>
+        Le projet de gestion de matériel qui à pour but de gérer les différents matériels attribués, émettre des retours
+        et d'autres fonctionnalités ont été dévellopé avec le <a href="https://symfony.com/doc/current/index.html#gsc.tab=0">Framework Symfony v4.1.3<a/>, PHP v7.2.1.
+        C'est donc une refonte de ma part avec Symfony pour gagner en compétence. Le projet etait dévellopé à la base
+        sans Framework.
+    </p>
+    <p>
+        Le projet de QCM CLOUD a été développer sous <a href="https://developer.android.com/">Android studio</a> côté client, PHP (Apache) côté serveur.
+        Il s'agit d'un projet ou un "formateur" peut se connecter et vérifier les QCMs non publiés aux étudiants
+        pour y modifier, ajouter, supprimer des questions.
+    </p>
+    <p>
+        Vous aurez besoin de vous connecter pour avoir accès aux projets. Côté Android je mets à disposition l'apk
+        directement installable depuis un mobile of course :p.
+    </p>
 {% endblock %}

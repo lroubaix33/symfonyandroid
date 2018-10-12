@@ -33,6 +33,9 @@ class Category
      */
     private $materials;
 
+    /**
+     * @ORM\Column(type="integer", length=99, nullable=true)
+     */
     private $countOfMaterials;
 
     public function __construct()
@@ -74,7 +77,7 @@ class Category
         return $this->countOfMaterials;
     }
 
-    public function setCountOfMaterials(int $countOfMaterials): self
+    public function setCountOfMaterials(int $countOfMaterials = null): self
     {
         $this->countOfMaterials = $countOfMaterials;
 
