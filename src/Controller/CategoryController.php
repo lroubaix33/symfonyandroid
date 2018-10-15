@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category", name="category_page")
+     * @Route("/category", options = { "expose" = true }, name="category_page")
      */
     public function showCategorys(CategoryRepository $repo)
     {
@@ -86,7 +86,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/delete/{id}", name="delete_category_page")
+     * @Route("/category/delete/{id}", options = { "expose" = true }, name="delete_category_page")
      */
     public function deleteCategory(ObjectManager $manager, Category $category) {
 
