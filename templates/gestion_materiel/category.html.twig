@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Catégories{% endblock %}
 
 {% block body %}
@@ -51,10 +52,13 @@
                         {% if category.countOfMaterials > 0 %}
                             {# DO NOTHING #}
                         {% else %}
-                            <a type="button" class="btn btn-primary btn-sm" href="{{ path('delete_category_page', {'id': category.id}) }}">SUPPRIMER</a>
+                            
+                            <a type="button" href="#" data-toggle="modal" data-target="#deleteCategModal" data-idcateg="{{ category.id }}" class="btn btn-primary btn-sm">SUPPRIMER</a>
+                            {# <a type="button" class="btn btn-primary btn-sm" href="{{ path('delete_category_page', {'id': category.id}) }}">SUPPRIMER</a> #}
                         {% endif %}
                     </td>
                 </tr>
+                {% include '/modal/delete_categ_modal.html.twig' %}
             {% endfor %}
         </tbody>
     </table>

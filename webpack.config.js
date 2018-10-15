@@ -21,6 +21,7 @@ Encore
     .addEntry('/css/qcm-page', './assets/css/qcm-page.scss')
     .addEntry('/css/base-page', './assets/css/base-page.scss')
     .addEntry('/css/home-page', './assets/css/home-page.scss')
+    .addEntry('/js/category-page', './assets/js/category-page.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

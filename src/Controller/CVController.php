@@ -28,7 +28,7 @@ class CVController extends AbstractController {
     }
 
     /**
-     * @Route("/cv/show", name="show_cv_page")
+     * @Route("/cv/show", name="show_cv_page", options = { "expose"=true })
      */
     public function showCv() {
 
