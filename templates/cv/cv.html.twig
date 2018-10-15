@@ -3,5 +3,11 @@
 {% block title %}Présentation C.V{% endblock %}
 
 {% block body %}
-    <h1>Hello CV Page</h1>
+
+    </br>
+    <h1>Hello CV Page</h1></br>
+
+    <p>Vous pouvez à partir de cette page,
+    <a href="{{ path('download_cv_page') }}">télécharger</a>
+    ou bien <a href="{{ path('show_cv_page') }}">regarder directemment</a> mon CV en ligne.</p>
 {% endblock %}

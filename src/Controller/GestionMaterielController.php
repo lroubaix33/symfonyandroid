@@ -129,8 +129,6 @@ class GestionMaterielController extends AbstractController {
 
         $material = $repo->findOneByIdJoinedToLoaning($loaning->getId());
 
-        // var_dump($result[0]);
-
         $loaningBackForm = $this->createForm(LoaningBackType::class, $loaning);
         $loaningBackForm->handleRequest($request);
 
