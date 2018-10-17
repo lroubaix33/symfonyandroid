@@ -3,7 +3,7 @@
 {% block title %}Gestion du matériel{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/qcm-page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('build/css/user-page.css') }}"/>
 {% endblock %}
 
 {% block body %}
@@ -26,58 +26,65 @@
     </ul>
     </br>
 
-    <h2>Liste des utilisateurs</h2>
+    <h3>
+        <img src="images-icons/icons/users-icon.png" alt="icon-user">
+          -- Utilisateurs enregistrés
+    </h3>
 
-    <a type="button" class="btn btn-success" href="{{ path('new_user_page') }}">
-        AJOUTER UN UTILISATEUR
-    </a>
-    </br>
+    <div class="right-position-btn">
+        <button type="button" class="btn btn-success" href="{{ path('new_user_page') }}">
+            AJOUTER UN UTILISATEUR
+        </button>
+    </div>
 
-    <table class="table table-hover">
-        <thead>
-            <th scope="col">Code</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Outils</th>
-            <th scope="col">Emp</th>
-            <th scope="col">Emprunts</th>
-        </thead>
-        <tbody>
-            {% for user in users %}
-                <tr class="
-                    {% if loop.index is divisible by(2) %}
-                        table-success
-                    {% else %}
-                        table-primary
-                    {% endif %}">
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.name | upper }} {{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        <a type="button" class="btn btn-primary btn-sm" href="/user/edit/{{ user.id }}">MODIFIER</a>
-                        {% if user.loanings|length > 0 %}
-                            <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE ( {{ user.loanings|length }} )</a>
-                        {% else %}
-                            <a type="button" class="btn btn-primary btn-sm" href="{{ path('delete_user_page', {'id': user.id}) }}">SUPPRIMER</a>
-                        {% endif %}
-                    </td>
-                    <td>{{ user.loanings|length }}</td>
-                    <td>
-                        {% if user.loanings|length > 0 %}
-                            {% for loaning in user.loanings %}
-                                {% if loaning.dateBack is null %}
-                                    {{ loaning.dateLoaning | date("m/d/Y", "Europe/Paris") }} 
-                                    <a type="button" class="btn btn-primary btn-sm" href="/user/loaningback/{{ loaning.id }}">RETOUR</a>
-                                {% else %}
-                                    {# DO NOTHING #}
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            Pas d'emprunt.
-                        {% endif %}
-                    </td>
+    </br></br>
+
+    <input class="form-control" id ="searchUser" type ="text" placeholder ="Rechercher un utilisateur ..."></br>
+
+    <div <div class="table-responsive-xl">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Outils</th>
+                    <th>Emp</th>
+                    <th>Emprunts</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody id="userTableBody">
+                {% for user in users %}
+                    <tr>
+                        <th>{{ user.id }}</th>
+                        <td>{{ user.name | upper }} {{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <a type="button" class="btn btn-primary btn-sm" href="/user/edit/{{ user.id }}">MODIFIER</a>
+                            {% if user.loanings|length > 0 %}
+                                <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE ( {{ user.loanings|length }} )</a>
+                            {% else %}
+                                <a type="button" class="btn btn-primary btn-sm" href="{{ path('delete_user_page', {'id': user.id}) }}">SUPPRIMER</a>
+                            {% endif %}
+                        </td>
+                        <td>{{ user.loanings|length }}</td>
+                        <td>
+                            {% if user.loanings|length > 0 %}
+                                {% for loaning in user.loanings %}
+                                    {% if loaning.dateBack is null %}
+                                        {{ loaning.dateLoaning | date("m/d/Y", "Europe/Paris") }} 
+                                        <a type="button" class="btn btn-primary btn-sm" href="/user/loaningback/{{ loaning.id }}">RETOUR</a>
+                                    {% else %}
+                                        {# DO NOTHING #}
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                Pas d'emprunt.
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

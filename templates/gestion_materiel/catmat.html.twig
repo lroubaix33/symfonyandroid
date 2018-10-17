@@ -23,9 +23,10 @@
 
     </br>
 
-    <h2>Liste des matériels par catégorie</h2>
-
-    </br>
+    <h3>
+        <img src="images-icons/icons/rsz_cat-mat.png" alt="icon-catmat">
+          -- Liste des catégories par matériel
+    </h3></br>
 
     <ul class="list-group">
         {% for category in categorys %}
@@ -40,35 +41,32 @@
 
     </br>
 
-    <table class="table table-hover">
-        <thead>
-            <th scope="col">Code</th>
-            <th scope="col">Libelle</th>
-            <th scope="col">Outils</th>
-            <th scope="col">Etat</th>
-        </thead>
-        <tbody>
-            {% for material in materials %}
-                <tr class="
-                    {% if loop.index is divisible by(2) %}
-                        table-success
-                    {% else %}
-                        table-primary
-                    {% endif %}">
-                    <td>{{ material.code }}</td>
-                    <td>{{ material.libelle }}</td>
-                    <td>
-                        <a type="button" class="btn btn-primary btn-sm" href="#">MODIFIER</a>
-                    </td>
-                    <td>
-                        {% if material.lastLoaning is null %}
-                            {# DO NOTHING #}
-                        {% else %}
-                            {{ material.lastLoaning.dateLoaning | date('Y/d/m') }}
-                        {% endif %}    
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div <div class="table-responsive-xl">
+        <table class="table">
+            <thead>
+                <th>Code</th>
+                <th>Libelle</th>
+                <th>Outils</th>
+                <th>Etat</th>
+            </thead>
+            <tbody>
+                {% for material in materials %}
+                    <tr>
+                        <td>{{ material.code }}</td>
+                        <td>{{ material.libelle }}</td>
+                        <td>
+                            <a type="button" class="btn btn-primary btn-sm" href="#">MODIFIER</a>
+                        </td>
+                        <td>
+                            {% if material.lastLoaning is null %}
+                                {# DO NOTHING #}
+                            {% else %}
+                                {{ material.lastLoaning.dateLoaning | date('Y/d/m') }}
+                            {% endif %}    
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

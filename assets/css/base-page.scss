@@ -3,8 +3,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #efefef;
+    color: aliceblue;
+    background-color: #343a40;
     text-align: center;
+
+    p {
+        margin-top: 10px !important;
+    }
+
+    box-shadow: 12px -1px 13px 9px rgba(0, 0, 0, 0.3),
+     19px 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 body {
@@ -24,4 +32,8 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+p {
+    margin-top: 0 !important;
 }

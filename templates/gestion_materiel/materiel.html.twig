@@ -21,53 +21,48 @@
     </ul>
     </br>
 
-    <h2>Liste des matériels</h2>
+    <h3>
+        <img src="images-icons/icons/material-icon.png" alt="icon-material">
+          -- Liste des matériels 
+    </h3></br>
 
-    <a type="button" class="btn btn-success" href="{{ path('new_material_page') }}">
-        AJOUTER UN MATERIEL
-    </a>
-    </br></br>
-
-    <table class="table table-hover">
-        <thead>
-            <th scope="col">Code</th>
-            <th scope="col">Libelle</th>
-            <th scope="col">Catégorie</th>
-            <th scope="col">Outils</th>
-            <th scope="col">Etat</th>
-        </thead>
-        <tbody>
-            {% for material in materials %}
-                <tr class="
-                    {% if loop.index is divisible by(2) %}
-                        table-success
-                    {% else %}
-                        table-primary
-                    {% endif %}">
-                    <td>{{ material.code }}</td>
-                    <td>{{ material.libelle }}</td>
-                    <td>{{ material.category.libelle }}</td>
-                    <td>
-                        <a type="button" class="btn btn-primary btn-sm" href="/material/edit/{{ material.id }}">MODIFIER</a>
-                        {% if not material.lastLoaning is null %}
-                            <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE</a>
-                        {% else %}
-                            <a type="button" class="btn btn-primary btn-sm" href="/material/delete/{{ material.id }}">SUPPRIMER</a>
-                            <a type="button" class="btn btn-primary btn-sm" href="{{ path('attrib_material_page', {'id': material.id}) }}">ATTRIB</a>
-                        {% endif %}
-                        {% if not material.isDelete %}
-                            <a type="button" class="btn btn-primary btn-sm" href="#">HS</a>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if material.lastLoaning is null %}
-                            {{ material.motifDelete }}
-                        {% else %}
-                            {{ material.lastLoaning.dateLoaning  | date("m/d/Y", "Europe/Paris") }}
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div <div class="table-responsive-xl">
+        <table class="table">
+            <thead>
+                <th>Code</th>
+                <th>Libelle</th>
+                <th>Catégorie</th>
+                <th>Outils</th>
+                <th>Etat</th>
+            </thead>
+            <tbody>
+                {% for material in materials %}
+                    <tr>
+                        <td>{{ material.code }}</td>
+                        <td>{{ material.libelle }}</td>
+                        <td>{{ material.category.libelle }}</td>
+                        <td>
+                            <a type="button" class="btn btn-primary btn-sm" href="/material/edit/{{ material.id }}">MODIFIER</a>
+                            {% if not material.lastLoaning is null %}
+                                <a type="button" class="btn btn-primary btn-sm" href="#">HISTORIQUE</a>
+                            {% else %}
+                                <a type="button" class="btn btn-primary btn-sm" href="/material/delete/{{ material.id }}">SUPPRIMER</a>
+                                <a type="button" class="btn btn-primary btn-sm" href="{{ path('attrib_material_page', {'id': material.id}) }}">ATTRIB</a>
+                            {% endif %}
+                            {% if not material.isDelete %}
+                                <a type="button" class="btn btn-primary btn-sm" href="#">HS</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if material.lastLoaning is null %}
+                                {{ material.motifDelete }}
+                            {% else %}
+                                {{ material.lastLoaning.dateLoaning  | date("m/d/Y", "Europe/Paris") }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

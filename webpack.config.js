@@ -22,6 +22,8 @@ Encore
     .addEntry('/css/base-page', './assets/css/base-page.scss')
     .addEntry('/css/home-page', './assets/css/home-page.scss')
     .addEntry('/js/category-page', './assets/js/category-page.js')
+    .addEntry('/css/user-page', './assets/css/user-page.scss')
+    .addEntry('/js/user-page', './assets/js/user-page.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
