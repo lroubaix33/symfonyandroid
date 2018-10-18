@@ -1,41 +1,41 @@
-.footer {
-    display: flex;
-    flex-direction: row wrap;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    color: aliceblue;
-    background-color: #343a40;
-    text-align: center;
+// .footer {
+//     display: flex;
+//     flex-direction: row wrap;
+//     margin: auto;
+//     position: absolute;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     color: aliceblue;
+//     background-color: #343a40;
+//     text-align: center;
 
-    p {
-        margin-top: 10px !important;
-    }
+//     p {
+//         margin-top: 10px !important;
+//     }
 
-    .info {
-        margin: auto;
-    }
+//     .info {
+//         margin: auto;
+//     }
 
-    box-shadow: 12px -1px 13px 9px rgba(0, 0, 0, 0.3),
-     19px 15px 12px rgba(0, 0, 0, 0.22);
+//     box-shadow: 12px -1px 13px 9px rgba(0, 0, 0, 0.3),
+//      19px 15px 12px rgba(0, 0, 0, 0.22);
 
-    .social-network {
-        padding: 1em;
-    }
-}
+//     .social-network {
+//         padding: 1em;
+//     }
+// }
 
 .right-position-btn {
     float: right;
 }
 
 body {
+    display:flex; 
+    flex-direction:column; 
     background-color: #efefef;
-    position: relative;
     margin: 0;
-    padding-bottom: 6rem;
-    min-height: 100%;
+    min-height: auto;
 }
 
 .pdf-container {
@@ -44,7 +44,7 @@ body {
 }
 
 html {
-    height: 100%;
+    min-height: 100%;
     box-sizing: border-box;
 }
 
@@ -58,11 +58,7 @@ p {
     margin-top: 0 !important;
 }
 
-.title-form {
-    margin-top: .5em !important;
-    margin-bottom: .5em;
-}
-
+// FORM 
 form {
     display: flex;
     flex-direction: column;
@@ -80,5 +76,21 @@ form {
     }
     label {
         font-weight: 500;
+    }
+}
+
+.title-form {
+    margin-top: .5em !important;
+    margin-bottom: .5em;
+}
+
+// FOOTER
+footer {
+    bottom: 0;
+    margin-top: 7%;
+    background-color: #333030;
+
+    .text-copyright {
+        color: white;
     }
 }
