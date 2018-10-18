@@ -37,8 +37,8 @@ class MaterialType extends AbstractType
             ])
 
             ->add('is_delete', CheckboxType::class, [
-                'label' => 'Hors service',
-                'required' => true
+                'label' => 'Hors service ?',
+                'required' => false
                 ])
 
             ->add('motif_delete', TextType::class, [

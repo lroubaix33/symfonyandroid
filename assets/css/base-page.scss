@@ -1,4 +1,7 @@
 .footer {
+    display: flex;
+    flex-direction: row wrap;
+    margin: auto;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -11,8 +14,20 @@
         margin-top: 10px !important;
     }
 
+    .info {
+        margin: auto;
+    }
+
     box-shadow: 12px -1px 13px 9px rgba(0, 0, 0, 0.3),
      19px 15px 12px rgba(0, 0, 0, 0.22);
+
+    .social-network {
+        padding: 1em;
+    }
+}
+
+.right-position-btn {
+    float: right;
 }
 
 body {
@@ -36,4 +51,29 @@ html {
 
 p {
     margin-top: 0 !important;
+}
+
+.title-form {
+    margin-top: .5em !important;
+    margin-bottom: .5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: .5em;
+
+    button {
+        margin: auto;
+        width: fit-content;
+        margin-top: .5em;
+        order: 1;
+    }
+
+    input {
+        margin-bottom: .5em !important;
+    }
+    label {
+        font-weight: 500;
+    }
 }

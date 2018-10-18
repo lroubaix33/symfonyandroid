@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}Catégories{% endblock %}
 
 {% block body %}
@@ -25,7 +24,16 @@
     <h3>
         <img src="images-icons/icons/rsz_category-icon.png" alt="icon-category">
           -- Liste des catégories 
-    </h3></br>
+    </h3>
+
+    <div class="right-position-btn">
+        <a type="button" class="btn btn-success" href="{{ path('new_category_page') }}">
+            AJOUTER UNE CATEGORIE
+        </a>
+    </div>
+    </br></br>
+
+    <input class="form-control" id ="searchCategory" type ="text" placeholder ="Rechercher une catégorie ..."></br>
 
     <div class="table-responsive-xl">
         <table class="table">
@@ -35,7 +43,7 @@
                 <th>Nombre</th>
                 <th>Outils</th>
             </thead>
-            <tbody>
+            <tbody id="categoryTableBody">
                 {% for category in categorys %}
                     <tr>
                         <td>{{ category.code }}</td>

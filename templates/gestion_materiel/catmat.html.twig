@@ -41,6 +41,8 @@
 
     </br>
 
+    <input class="form-control" id ="searchMaterialByCat" type ="text" placeholder ="Rechercher un matériel ..."></br>
+
     <div <div class="table-responsive-xl">
         <table class="table">
             <thead>
@@ -49,7 +51,7 @@
                 <th>Outils</th>
                 <th>Etat</th>
             </thead>
-            <tbody>
+            <tbody id="materialCatTableBody">
                 {% for material in materials %}
                     <tr>
                         <td>{{ material.code }}</td>

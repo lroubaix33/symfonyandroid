@@ -24,7 +24,16 @@
     <h3>
         <img src="images-icons/icons/material-icon.png" alt="icon-material">
           -- Liste des matériels 
-    </h3></br>
+    </h3>
+
+    <div class="right-position-btn">
+        <a type="button" class="btn btn-success" href="{{ path('new_material_page') }}">
+            AJOUTER UN MATERIEL
+        </a>
+    </div>
+    </br></br>
+
+    <input class="form-control" id ="searchMaterial" type ="text" placeholder ="Rechercher un matériel ..."></br>
 
     <div <div class="table-responsive-xl">
         <table class="table">
@@ -35,7 +44,7 @@
                 <th>Outils</th>
                 <th>Etat</th>
             </thead>
-            <tbody>
+            <tbody id="materialTableBody">
                 {% for material in materials %}
                     <tr>
                         <td>{{ material.code }}</td>
