@@ -2,12 +2,28 @@
 
 {% block title %}Présentation C.V{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/base-page.css') }}"/>
+{% endblock %}
+
 {% block body %}
 
     </br>
-    <h1>Hello CV Page</h1></br>
+    <h3>
+        <img src="{{ asset('images-icons/icons/rsz_cv-icon.png') }}" alt="icon-cv">
+          -- Curriculum Vitæ
+    </h3>
 
     <p>Vous pouvez à partir de cette page,
-    <a href="{{ path('download_cv_page') }}">télécharger</a>
-    ou bien <a href="{{ path('show_cv_page') }}">regarder directemment</a> mon CV en ligne.</p>
+        <a href="{{ path('download_cv_page') }}"> télécharger</a> mon C.V sous format PDF.
+    </p>
+
+    {% if show %}
+        <object type="application/pdf" class="pdf-container">
+            <param name="src" value="{{ asset('pdf/cv_lroubaix.pdf') }}" />
+        </object>
+    {% else %}
+        <p>Ou bien <a href="{{ path('show_cv_page') }}">regarder directemment</a> mon CV en ligne.</p>
+    {% endif %}
+
 {% endblock %}

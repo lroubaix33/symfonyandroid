@@ -15,7 +15,9 @@ class CVController extends AbstractController {
      * @Route("/cv", name="cv_page")
      */
     public function renderCv() {
-        return $this->render('cv/cv.html.twig');
+        return $this->render('cv/cv.html.twig', [
+            'show' => false
+        ]);
     }
 
     /**
@@ -23,16 +25,17 @@ class CVController extends AbstractController {
      */
     public function downloadCv() {
 
-        $file = new File('../public/build/pdf/toto.pdf');
+        $file = new File('../public/pdf/cv_lroubaix.pdf');
         return $this->file($file, 'curriculum_vitae_lr.pdf');
     }
 
     /**
-     * @Route("/cv/show", name="show_cv_page", options = { "expose"=true })
+     * @Route("/cv/show", name="show_cv_page")
      */
     public function showCv() {
 
-        $file = new File('../public/build/pdf/toto.pdf');
-        return $this->file($file, 'cv_lr', ResponseHeaderBag::DISPOSITION_INLINE);
+        return $this->render('cv/cv.html.twig', [
+            'show' => true
+        ]);
     }
 }

@@ -37,53 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [
-  ["/build/css/base-page.css","840d6091a0bc35224e6755da0eb70d2f"],
-  ["/build/css/base-page.js","909b8c50bb6e2793745aaf7331d7222c"],
-  ["/build/css/connexion-page.css","6fb3fa3cb2be7fbc841cc47f905ef30b"],
-  ["/build/css/connexion-page.js","d14c0ff8a9738ee9b5f4c80b557252f5"],
-  ["/build/css/home-page.css","721ddb98d4536dad4a85d807c2e0be67"],
-  ["/build/css/home-page.js","5a3ca9cc34c8d0ba045730fe29f23437"],
-  ["/build/css/qcm-page.css","e72b64b6c4f847065105d27a10875bde"],
-  ["/build/css/qcm-page.js","28b9f766665ea5d6b20d5fee7c594d6e"],
-  ["/build/css/user-page.css","fdbf0b2c939166564871ca185c98d851"],
-  ["/build/css/user-page.js","ea21c786a18f740b8a3a1edd3f451e6f"],
-  ["/build/js/category-page.js","85f08f0c4e950f2035cdf740ba50c898"],
-  ["/build/js/user-page.js","96be642a725f129daf329e16330f802f"],
-  ["/bundles/fosjsrouting/js/router.js","c4ba2ecfada23a70580eff1d2aec741a"],
-  ["/bundles/fosjsrouting/js/router.min.js","f40269ad5b7d10d9b28816b63097ded7"],
-  ["/images-icons/icons/material-icon.png","782f2cc6a81cf3b6268e4ba90d3ce89e"],
-  ["/images-icons/icons/rsz_cat-mat.png","809b959ace8d3416b69de81412cabf93"],
-  ["/images-icons/icons/rsz_category-icon.png","4caa077b9227de538f6c2462e878209b"],
-  ["/images-icons/icons/rsz_facebook-icon.png","ba24a4ac925d46c3bef4ba4e99c8d038"],
-  ["/images-icons/icons/rsz_form-icon.png","d1ff542fce121ca7bc323ba4336a3933"],
-  ["/images-icons/icons/rsz_icon-dev.png","dac8f94ec32369e6716bd978f968ee5a"],
-  ["/images-icons/icons/rsz_if_linkedin_287553.png","e5cea9ef2b790510691d03ddcaf67475"],
-  ["/images-icons/icons/rsz_instagram-new-flat.png","7d4514d84b591fe2d5f47186619923fd"],
-  ["/images-icons/icons/rsz_twitter-icon.png","25f11a9cbf0edc06a6e310b40b8de4d6"],
-  ["/images-icons/icons/users-icon.png","707fca34ddbee6f6c24a6b7a456b565f"],
-  ["templates/base.html.twig","9ba4a3b30468c059614de1eb3d3d3646"],
-  ["templates/connexion/connexion.html.twig","0884c82ade2c024813a302eb0e57a1bf"],
-  ["templates/connexion/register.html.twig","df4362b2409faa22f323112f874c0981"],
-  ["templates/cv/cv.html.twig","085d30fc62926b9301aecf0615a6bf49"],
-  ["templates/form/form_connexion.html.twig","d7fe44dc00682fd63bcb02c068d0b20c"],
-  ["templates/gestion_materiel/attribloaning.html.twig","79e4b219b44c4520dbbe2d82b82c4d82"],
-  ["templates/gestion_materiel/category.html.twig","bbf9e09ca934a95eb38215740ad21a03"],
-  ["templates/gestion_materiel/catmat.html.twig","3e91f6e21d66829c2596d93603150d88"],
-  ["templates/gestion_materiel/editcategory.html.twig","4dc602ea3a7416ca94a08aca2f2d976f"],
-  ["templates/gestion_materiel/editmaterial.html.twig","c23a8b7bbd26b8105b934b2409abe579"],
-  ["templates/gestion_materiel/edituser.html.twig","93ac00e34f14e23522a17aec53a6ba5f"],
-  ["templates/gestion_materiel/loaningback.html.twig","394d9db83a116aa51676bc024a251a7c"],
-  ["templates/gestion_materiel/materiel.html.twig","845b66890efaa162c11a1cdabd4cf00b"],
-  ["templates/gestion_materiel/newcategory.html.twig","daadb3c7ce5036ffccb3fff5b0701946"],
-  ["templates/gestion_materiel/newmaterial.html.twig","3d6240626ea5cdaf623cbab9b07e4d26"],
-  ["templates/gestion_materiel/newuser.html.twig","9ba08547d1eee631c9f264138e56d25c"],
-  ["templates/gestion_materiel/user.html.twig","8b72f59aa48f98dcebb240a22871af6c"],
-  ["templates/home_page/home_page.html.twig","a6e13e1e0a07329c468624a74c3bdffa"],
-  ["templates/modal/delete_categ_modal.html.twig","a86afef2290faf8370cc694db3581afb"],
-  ["templates/qcm_cloud/qcmcloud.html.twig","b9c24f3f5f017d187757139937efc15e"]
-];
-
+var precacheConfig = [["/build/css/base-page.css","5b156829804458a04fb1daf045ce2418"],["/build/css/base-page.js","a700fdc7e8592c57fd5772c44e3da0ae"],["/build/css/connexion-page.css","6fb3fa3cb2be7fbc841cc47f905ef30b"],["/build/css/connexion-page.js","92af12dd9f279acf6d6b7d7950a5df32"],["/build/css/home-page.css","721ddb98d4536dad4a85d807c2e0be67"],["/build/css/home-page.js","ecfee716c556a4c544864444232fa011"],["/build/css/qcm-page.css","e72b64b6c4f847065105d27a10875bde"],["/build/css/qcm-page.js","fbe11e2a9459e3c6cde3dce202ac58da"],["/build/css/user-page.css","fdbf0b2c939166564871ca185c98d851"],["/build/css/user-page.js","6206527593e8396aec9a0e73066d8d52"],["/build/js/base-page.js","008c29cd64b662352dbce887dc9e2378"],["/build/js/category-page.js","62e5e0cf787f47fa7a0c57dea198cc9a"],["/build/js/user-page.js","a742af768eee5c593e157f0a0dc75788"],["/bundles/fosjsrouting/js/router.js","c4ba2ecfada23a70580eff1d2aec741a"],["/bundles/fosjsrouting/js/router.min.js","f40269ad5b7d10d9b28816b63097ded7"],["/images-icons/icons/android-icon-144x144.png","8eeac8048745d0c43d517a78d7c2e6d6"],["/images-icons/icons/icon-128x128.png","a1ef1b9708d1ea183a9bc3c84ae12f2b"],["/images-icons/icons/icon-144x144.png","46191e632fc0608fddd6807fb3c0e195"],["/images-icons/icons/icon-152x152.png","cb261019ea0d6deebd87ade090d74447"],["/images-icons/icons/icon-192x192.png","add0be3f5939bed00e3d5c25d3704b8c"],["/images-icons/icons/icon-384x384.png","944845293fe2d79da51210d2abef435a"],["/images-icons/icons/icon-512x512.png","42ae7882c8e77d70b4139cefcd7a2a4d"],["/images-icons/icons/icon-72x72.png","afe3b946a130e48a1beff91016a9ab12"],["/images-icons/icons/icon-96x96.png","997a884575b29116abb58e1d46a79885"],["/images-icons/icons/material-icon.png","782f2cc6a81cf3b6268e4ba90d3ce89e"],["/images-icons/icons/rsz_cat-mat.png","809b959ace8d3416b69de81412cabf93"],["/images-icons/icons/rsz_category-icon.png","4caa077b9227de538f6c2462e878209b"],["/images-icons/icons/rsz_cv-icon.png","d9646b5990020c8b0fbd67c2029defd7"],["/images-icons/icons/rsz_facebook-icon.png","ba24a4ac925d46c3bef4ba4e99c8d038"],["/images-icons/icons/rsz_form-icon.png","d1ff542fce121ca7bc323ba4336a3933"],["/images-icons/icons/rsz_icon-dev.png","dac8f94ec32369e6716bd978f968ee5a"],["/images-icons/icons/rsz_if_linkedin_287553.png","e5cea9ef2b790510691d03ddcaf67475"],["/images-icons/icons/rsz_instagram-new-flat.png","7d4514d84b591fe2d5f47186619923fd"],["/images-icons/icons/rsz_twitter-icon.png","25f11a9cbf0edc06a6e310b40b8de4d6"],["/images-icons/icons/users-icon.png","707fca34ddbee6f6c24a6b7a456b565f"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 

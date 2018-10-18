@@ -20,6 +20,7 @@ Encore
     .addEntry('/css/connexion-page', './assets/css/connexion-page.scss')
     .addEntry('/css/qcm-page', './assets/css/qcm-page.scss')
     .addEntry('/css/base-page', './assets/css/base-page.scss')
+    .addEntry('/js/base-page', './assets/js/base-page.js')
     .addEntry('/css/home-page', './assets/css/home-page.scss')
     .addEntry('/js/category-page', './assets/js/category-page.js')
     .addEntry('/css/user-page', './assets/css/user-page.scss')

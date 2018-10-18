@@ -38,6 +38,11 @@ body {
     min-height: 100%;
 }
 
+.pdf-container {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
 html {
     height: 100%;
     box-sizing: border-box;
