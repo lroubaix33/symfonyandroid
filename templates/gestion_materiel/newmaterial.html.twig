@@ -5,10 +5,16 @@
 
 {% block body %}
 
-    {{ form_start(materialform) }}
-        <button type="submit" class="btn btn-success">
-            AJOUTER LE MATERIEL
-        </button>
-    {{ form_end(materialform) }}
+    <div class="container-form">
+        {{ form_start(materialform) }}
+            <p class="h3 mb-4">
+                -- Ajout d'un matériel
+            </p>
+
+            <button type="submit" class="btn btn-primary">
+                AJOUTER LE MATERIEL
+            </button>
+        {{ form_end(materialform) }}
+    </div>
 
 {% endblock %}

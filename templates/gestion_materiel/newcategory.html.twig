@@ -5,10 +5,15 @@
 
 {% block body %}
 
-    {{ form_start(formcategory) }}
-        <button type="submit" class="btn btn-success">
-            AJOUTER LA CATEGORIE
-        </button>
-    {{ form_end(formcategory) }}
+    <div class="container-form">
+        {{ form_start(formcategory) }}
+            <p class="h3 mb-4">
+                -- Ajout d'une catégorie
+            </p>
 
+            <button type="submit" class="btn btn-primary">
+                AJOUTER LA CATEGORIE
+            </button>
+        {{ form_end(formcategory) }}
+    </div>
 {% endblock %}

@@ -5,13 +5,23 @@
 
 {% block body %}
 
-    <h3 class="title-form">
-        <img src="../images-icons/icons/rsz_form-icon.png" alt="icon-form">
-         -- Formulaire d'ajout d'un utilisateur
-    </h3>
+    {# <div class="title-container">
+        <h3 class="title-form">
+            <img src="../images-icons/icons/rsz_form-icon.png" alt="icon-form">
+            -- Formulaire d'ajout d'un utilisateur
+        </h3>
+    </div> #}
 
-    {{ form_start(form) }}
-        <button class="btn btn-success" type="submit">AJOUTER UN UTILISATEUR</button>
-    {{ form_end(form) }}
-    
+    <div class="container-form">
+        {{ form_start(form) }}
+            <p class="h3 mb-4">
+                <img src="../images-icons/icons/rsz_form-icon.png" alt="icon-form">
+                -- Formulaire d'ajout d'un utilisateur
+            </p>
+
+            <button class="btn btn-primary" type="submit">
+                AJOUTER UN UTILISATEUR
+            </button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

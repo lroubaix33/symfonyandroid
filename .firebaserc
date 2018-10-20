@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "SymfonyAndroid": "symfonyandroid",
+    "default": "symfonyandroid"
+  }
+}

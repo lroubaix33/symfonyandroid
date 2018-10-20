@@ -5,10 +5,15 @@
 
 {% block body %}
 
-    {{ form_start(form) }}
-        <button type="submit" class="btn btn-success">
-            SAUVERGARDER
-        </button>
-    {{ form_end(form) }}
+    <div class="container-form">
+        {{ form_start(form) }}
+            <p class="h3 mb-4">
+                -- Modifier un utilisateur
+            </p>
 
+            <button type="submit" class="btn btn-primary">
+                SAUVERGARDER
+            </button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
