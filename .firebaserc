@@ -1,6 +1,5 @@
 {
   "projects": {
-    "SymfonyAndroid": "symfonyandroid",
-    "default": "symfonyandroid"
+    "default": "project-2ba18"
   }
 }
